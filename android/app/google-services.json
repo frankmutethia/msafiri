@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "103115508058",
+    "firebase_url": "https://msafiri-b5d87.firebaseio.com",
+    "project_id": "msafiri-b5d87",
+    "storage_bucket": "msafiri-b5d87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103115508058:android:b6db76b155aff986bd4b63",
+        "android_client_info": {
+          "package_name": "com.example.msafiri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103115508058-mm1dpstb14eelggvl67uba2muk77837h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.msafiri",
+            "certificate_hash": "38daa487021c88738e5337f8b8161fd289b944b5"
+          }
+        },
+        {
+          "client_id": "103115508058-j3ar6qk2i7fcdvf3mp1ehh3hcc35852e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB5xxLjGe0pmLJvhLYKXYdO-uGo-oH0rk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103115508058-j3ar6qk2i7fcdvf3mp1ehh3hcc35852e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
