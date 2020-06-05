@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:msafiri/screens/signup_screen.dart';
 import 'package:msafiri/screens/login_screen.dart';
 import 'package:msafiri/screens/dashboard_screen.dart';
+import 'package:msafiri/services/auth_services.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,24 +21,39 @@ class MyApp extends StatelessWidget {
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar.  
+        // application has a blue toolbar.
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-
       ),
       debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
-      routes: { 
-        LoginScreen.id:(context)=> LoginScreen(),
-        SignUpScreen.id:(context)=> SignUpScreen(),
-        DashBoardScreen.id:(context)=> DashBoardScreen(),
-        
+      home: FutureBuilder(
+        future: Future.value(checkIfAuth()),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else {
+            if (snapshot.hasData) {
+              return snapshot.data ? DashBoardScreen() : SignUpScreen();
+            } else {
+              return Center(child: Text("An error occurred"));
+            }
+          }
+        },
+      ),
+      routes: {
+        LoginScreen.id: (context) => LoginScreen(),
+        SignUpScreen.id: (context) => SignUpScreen(),
+        DashBoardScreen.id: (context) => DashBoardScreen(),
       },
     );
   }
+
+  Future<bool> checkIfAuth() async {
+    bool isAuth = await AuthService.isSignedIn();
+    return isAuth;
+  }
 }
 
-  
 /* import 'package:flutter/material.dart';
 
 void main() {
